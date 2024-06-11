@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from './AuthContext';
+import Loading from '../Loading/Loading'; // Import the Loading component
 import "./Login.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -9,9 +10,11 @@ function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);  // Add loading state
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        setLoading(true);  // Start loading
         try {
             const response = await fetch(`${API_URL}/schools/login/`, {
                 method: 'POST',
@@ -31,6 +34,8 @@ function Login() {
             }
         } catch (error) {
             setError('An error occurred. Please try again.');
+        } finally {
+            setLoading(false);  // Stop loading
         }
     };
 
@@ -41,6 +46,7 @@ function Login() {
 
     return (
         <div className="login-container">
+            {loading && <Loading />} {/* Display the loading animation */}
             <div className="login-card">
                 <div style={{ margin: "15px" }}>
                     <div className="profile-image-container">
@@ -70,7 +76,7 @@ function Login() {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                         {error && <p className="login-error">{error}</p>}
-                        <button className="login-button" type="submit">
+                        <button className="login-button" type="submit" disabled={loading}>
                             Login
                         </button>
                     </form>
