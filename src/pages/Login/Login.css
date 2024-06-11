@@ -1,0 +1,75 @@
+/* Style for the login container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #f0f4f8; /* Light grey background color for better visibility */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Style for the card */
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #ffffff; /* White background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style for the title */
+.login-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Style for the input fields */
+.login-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px; /* Rounded corners for inputs */
+    border: 1px solid #d1d5db; /* Light grey border */
+    background-color: #f9fafb; /* Slightly off-white background */
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Style for the button */
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4f46e5; /* Blue background */
+    color: #4f46e5; /* White text */
+    border: 1px solid black;
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.login-button:hover {
+    background-color: #3b35d1; /* Darker blue on hover */
+    color: #ffffff;
+    border: none;
+}
+
+.profile-image-container {
+    width: 100px; /* Adjust the width and height of the container as needed */
+    height: 100px;
+    border-radius: 50%; /* Make the container circular */
+    overflow: hidden; /* Hide any overflowing content */
+    border: 2px solid rgb(214, 214, 241); /* Add a blue border around the container */
+}
+
+.profile-image {
+    width: 100%; /* Make the image fill the container */
+    height: 100%; /* Make the image fill the container */
+    object-fit: cover; /* Ensure the image covers the entire container */
+}
