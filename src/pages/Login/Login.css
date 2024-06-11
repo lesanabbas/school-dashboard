@@ -48,7 +48,7 @@
     background-color: #4f46e5; /* Blue background */
     color: #4f46e5; /* White text */
     border: 1px solid black;
-    border-radius: 4px; /* Rounded corners */
+    border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease; /* Smooth transition */

@@ -1,9 +1,16 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
-const AuthProvider = ({ children }) => {
-    const [isLogin, setIsLogin] = useState(false); // Set initial value to false or true based on your logic
+export const AuthProvider = ({ children }) => {
+    const [isLogin, setIsLogin] = useState(() => {
+        const savedLoginState = localStorage.getItem('isLogin');
+        return savedLoginState ? JSON.parse(savedLoginState) : false;
+    });
+
+    useEffect(() => {
+        localStorage.setItem('isLogin', JSON.stringify(isLogin));
+    }, [isLogin]);
 
     return (
         <AuthContext.Provider value={{ isLogin, setIsLogin }}>
@@ -11,5 +18,3 @@ const AuthProvider = ({ children }) => {
         </AuthContext.Provider>
     );
 };
-
-export { AuthContext, AuthProvider };
